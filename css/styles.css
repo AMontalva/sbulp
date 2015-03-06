@@ -1,0 +1,283 @@
+/* 
+============================================================
+header styles begin 
+============================================================
+*/
+#header__sbu_logo {
+	padding-top: 6px;
+}
+
+#triangles {
+	width: 100%;	
+}
+
+#header__lp_search {
+	display: inline;
+	margin-left: 20px;
+}
+
+#header__lp {
+	float: left;
+}
+
+#header__search {
+	display: inline;
+	margin-top: 25px;
+	margin-left: 10px;
+	float: right;
+}
+
+#header__sign_up_sign_in {
+	margin-right: 20px;
+	margin-top: 16px;
+}
+/* 
+============================================================
+header styles end 
+============================================================
+*/
+
+
+
+/* 
+============================================================
+content in carousel 
+============================================================
+*/
+.content__title_button_container {
+	width: 100%;
+	margin-top: 10px;
+}
+
+.content__image {
+	display: block;
+	clear: both;
+}
+
+.content__title_category_container {
+	width: 75%;
+	float: left;
+	display: inline-block;
+}
+
+.content__title {
+	color: #0096f2; 
+	font-family: 'Alegreya Sans', sans-serif;
+}
+
+.content__buttons {
+	width: 25%;
+	float: right;
+	display: inline-block;
+}
+
+.contant__button_add {
+	margin-top: 10px;
+  cursor: pointer;
+}
+
+.content__button_view {
+	margin-top: 14px;
+}
+
+/* hover highlight image carousel */
+.caption {
+    display: none;
+    position: absolute;
+    background: rgba(255, 255, 255, 0.2);
+}
+/* 
+============================================================
+content in carousel end
+============================================================
+*/
+
+
+
+/* 
+============================================================
+arrow button in carousel begin 
+============================================================
+*/
+.jump-link {
+  margin: 5px 0;
+  padding: 0;
+  position: relative;
+}
+
+.jump-link a {
+  float: left;
+  height: 25px;
+  line-height: 24px;
+  position: relative;
+  margin: 0;
+  padding: 0 10px 0 14px;
+  background: #555;
+  color: #fff;
+  font-size: 12px;
+  text-decoration: none; 
+} 
+
+.jump-link a:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: -13px;
+  width: 0;
+  height: 0;
+  border-color: transparent transparent transparent #555;
+  border-style: solid;
+  border-width: 12px 0 13px 13px;  
+}
+
+.jump-link a:hover {
+  background: #0096f2;
+}
+
+.jump-link a:hover:after {
+  border-color: transparent transparent transparent #0096f2;
+}
+/* 
+============================================================
+arrow button in carousel end 
+============================================================
+*/
+
+
+/* 
+============================================================
+slick carousel begin 
+============================================================
+*/
+.slick-prev, .slick-next { 
+    height: 60px;  
+    width: 60px;
+}
+
+.slick-prev:before, .slick-next:before { 
+color: #2F889A !important;
+font-size: 60px;
+}
+.slick-prev {
+  margin-left: -50px;
+}
+
+.slick-next {
+  margin-right: -50px;
+}
+
+.single-item {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+.item {
+    text-align: left;
+    list-style: none;
+}
+
+.item img {
+    width: 100%;
+    height: 200px;
+}
+
+.slick-dots {
+    bottom: -36px;
+}
+.slick-dots li button:before {
+    font-size: 10px;
+}
+.slick-dots li button:after {
+    font-size: 10px;
+}
+/* 
+============================================================
+slick carousel end 
+============================================================
+*/
+
+
+/* 
+============================================================
+Profile Page Styles Begin 
+============================================================
+*/
+.pfpic {
+  position: relative;
+  left: 10px;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+   
+.pfinfo {
+  position: relative;
+  left: 200px;
+  padding-bottom: 25px;
+}
+
+.pflabel {
+  margin-bottom: 25px;
+}
+
+.pfinput {
+  width: 200px;
+}
+
+.interests_table {
+  position: relative;
+  left: 525px;
+  margin-top: -505px;
+}
+
+.interests_h2 {
+  text-align: left;
+  font-size: 6;
+}
+/* 
+============================================================
+Profile Page Styles End 
+============================================================
+*/
+
+
+/* createdpaths.php */
+.created_path__search {
+  width: 100%;
+  height: 200px;
+}
+
+
+.path__item {
+    margin-top: 0;
+    margin-bottom: 4em;
+    margin-right: 1%;
+    margin-left: 1%;            
+    width: 31.121642969984202211%;              
+    float: left;
+    text-align: center;
+}
+
+.created_path__box:nth-child(3n) {
+    /*margin-right: 0;*/
+}
+
+.created_path__title {
+  color: #0096f2; 
+  font-family: 'Alegreya Sans', sans-serif;
+}
+
+
+/* Created Path Page */
+.created_path_page__item {
+  display: block;
+  float: left;
+  width: 100%;
+}
+
+
+/* bootstrap modal fix */
+.modal-backdrop {
+  z-index: -9999;
+}
