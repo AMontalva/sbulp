@@ -1,8 +1,11 @@
 <!-- connects you to the database, include function to have access to $connection -->
 <?php
 
+$user = 'root';
+$pass = 'mult_Warhead';
+
   try {
-        $connection = new PDO ("", "", ""); 
+        $connection = new PDO ('mysql:host=localhost;dbname=sbulp_db', $user, $pass); 
         // new PDO (driver:host=servernumber, db_name=database_name, username, password);   
         $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); // allow errors
     }
