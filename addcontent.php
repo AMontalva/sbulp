@@ -44,7 +44,7 @@ if (isset($_POST['submit'])) {
     }
 
 
-    redirect_to("test.php");
+    redirect_to("index.php");
 
 
 }

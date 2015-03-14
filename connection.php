@@ -13,7 +13,7 @@ $pass = '';
         die();
     }
 
-    $query = $connection->query("SELECT * FROM content WHERE data_list_num < 100"); 
+    $query = $connection->query("SELECT * FROM content WHERE data_list_num < 50"); 
 	
 	$content_array = array();
 	

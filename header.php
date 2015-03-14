@@ -15,10 +15,8 @@
 	<link href="jquery-ui-1.10.4/css/ui-lightness/jquery-ui-1.10.4.custom.css" rel="stylesheet">
 
 <!-- newmodal -->
-	<link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" href="css/reset.css"> 
 	<link rel="stylesheet" href="css/style.css"> 
-	<link rel="stylesheet" href="css/addButtonStyle.css">	
 <!-- newmodal -->
     <link rel="stylesheet" href="css/styles.css">
 
@@ -46,7 +44,7 @@
 		      	</div>
 				<img id="triangles" src="img/triangles.png" alt="purple triangles border">	
 
-			<?php if($layout_context === "private" || isset($_SESSION['user_id'])) { ?>
+			<?php if( $layout_context === "private" || isset($_SESSION['user_id']) ) { ?>
 				<div id="header__sign_up_sign_in" class="pull-right">                                        
 				    <div class="dropdown">
 				        <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown"><?php echo $_SESSION["username"]; ?>
@@ -69,7 +67,7 @@
 
 				<div id="header__lp_search" class="pull-left">
 					<form class="form-inline" action="searchcontent.php" method="post">
-			    		<div id="header__lp" class="pull-left"><h2 class="h2"><a href="test.php">LEARNING PATHS</a></h1></div>
+			    		<div id="header__lp" class="pull-left"><h2 class="h2"><a href="index.php">LEARNING PATHS</a></h1></div>
 			    		<div id="header__search">
 				        	<input type="text" class="form-control" id="search" placeholder="Search for Content" name="search">
 				        	<button type="submit" class="btn btn-default" name="submit">Submit</button>  

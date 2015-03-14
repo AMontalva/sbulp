@@ -19,22 +19,17 @@
     ?>
     > 
 
-<?php
-    $num = 3 + 4;
-?>
+        <?php
+            $num = 3 + 4;
+        ?>
 
-<script type="text/javascript">
-    // numeric value, both with and without quotes
-    var num = <?php echo $num ?>; // 7
-    console.log(num);
+        <script type="text/javascript">
+            // numeric value, both with and without quotes
+            var num = <?php echo $num ?>; // 7
+            console.log(num);
 
-</script>
-
-<?php include("carousel_1.php"); ?>
-
-<?php include("carousel_2.php"); ?>
-
-<?php include("carousel_3.php"); ?>
+        </script>
+        <?php include("carousel_1.php"); ?>
 
     </div>
 </div>

@@ -3,6 +3,12 @@
 Primary style
 
 -------------------------------- */
+
+@font-face {
+  font-family: Fairview_Regular;
+  src: url("Fairview_Regular.otf") format("opentype");
+}
+
 html * {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -112,15 +118,47 @@ input::-ms-clear, textarea::-ms-clear {
     line-height: normal;
     background: #2f889a;
   }
+
   .main-nav a.cd-signin, .main-nav a.cd-signup {
-    padding: .3em .5em;
-    border: .5px solid rgba(255, 255, 255, 0.6);
-    border-radius: 25em;
+    /*padding: .3em .5em;*/
+    /*border: .5px solid rgba(255, 255, 255, 0.6);
+    border-radius: 25em;*/
+    background-color: #333;
+    border-radius: 2px;
+    cursor: pointer;
+    font-size: 20px;
+    padding: 6px 10px;
+    -webkit-transition: all 0.2s linear 0s;
+    -moz-transition: all 0.2s linear 0s;
+    -o-transition: all 0.2s linear 0s;
+    width: auto;
+    text-transform: uppercase;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    font-family: "Fairview_Regular";
+
   }
   .main-nav a.cd-signup {
-    background: #2f889a;
-    border: none;
+    background-color: #333;
+    border-radius: 2px;
+    cursor: pointer;
+    font-size: 20px;
+    padding: 6px 10px;
+    -webkit-transition: all 0.2s linear 0s;
+    -moz-transition: all 0.2s linear 0s;
+    -o-transition: all 0.2s linear 0s;
+    width: auto;
+    text-transform: uppercase;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    font-family: "Fairview_Regular";
   }
+
+
+
+  .main-nav:hover a.cd-signin:hover, .main-nav:hover a.cd-signup:hover {
+    background-color: #0096f2;
+  } 
 }
 
 /* -------------------------------- 
@@ -306,7 +344,7 @@ xsigin/signup popup
 .cd-form input[type=submit] {
   padding: 16px 0;
   cursor: pointer;
-  background: #2f889a;
+  background: #333;
   color: #FFF;
   font-weight: bold;
   border: none;
@@ -315,10 +353,12 @@ xsigin/signup popup
   -ms-appearance: none;
   -o-appearance: none;
   appearance: none;
+  font-family: "Fairview_Regular";
 }
 .no-touch .cd-form input[type=submit]:hover, .no-touch .cd-form input[type=submit]:focus {
-  background: #3599ae;
+  background: #0096f2;
   outline: none;
+  font-family: "Fairview_Regular";
 }
 .cd-form .hide-password {
   display: inline-block;
@@ -395,6 +435,7 @@ xsigin/signup popup
   }
   .cd-form input[type=submit] {
     padding: 16px 0;
+    font-family: "Fairview_Regular";
   }
 }
 

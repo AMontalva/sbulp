@@ -24,7 +24,7 @@ if (isset($_POST['submit'])) {
         ":user_id" => $user_id
     ));
 
-    redirect_to("test.php"); 
+    redirect_to("index.php"); 
     
 }
 else {

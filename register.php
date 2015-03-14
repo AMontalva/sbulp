@@ -20,7 +20,7 @@ if (isset($_POST['submit'])) {
         // $hashed_password = password_encrypt($_POST["password"]);
         $hashed_password = $_POST["password"];
 
-        $sql = "INSERT INTO User_Table_03 (username, hashed_password) VALUES (:username, :hashed_password)";
+        $sql = "INSERT INTO users (username, hashed_password) VALUES (:username, :hashed_password)";
         $query = $connection->prepare($sql);
 
         $query->execute(array(
@@ -35,7 +35,7 @@ if (isset($_POST['submit'])) {
         $default_path_description = "Your default path";
         $user_id = $user_default['user_id'];
 
-        $sql_default = "INSERT INTO Default_Path_Table (default_path_name, default_path_description, user_id) VALUES (:default_path_name, :default_path_description, :user_id)";
+        $sql_default = "INSERT INTO default_path (default_path_name, default_path_description, user_id) VALUES (:default_path_name, :default_path_description, :user_id)";
         $query_default = $connection->prepare($sql_default);
 
         $query_default->execute(array(
@@ -44,7 +44,7 @@ if (isset($_POST['submit'])) {
             ":user_id" => $user_id
         ));        
 
-        redirect_to("test.php");
+        redirect_to("index.php");
     }
 }
 else {

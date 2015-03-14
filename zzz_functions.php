@@ -1,54 +1,3 @@
-<!-- connects you to the database, include function to have access to $connection -->
-<?php
-
-$user = 'root';
-$pass = '';
-
-  try {
-        $connection = new PDO ('mysql:host=localhost;dbname=sbulp_db', $user, $pass); 
-        // new PDO (driver:host=servernumber, db_name=database_name, username, password);   
-        $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); // allow errors
-    }
-    catch(PDOException $e) {
-        echo $e->getMessage();
-        die();
-    }
-    
- ?>   
-
-<?php	
-
-
-/* 
-======================================================================================================
-======================================================================================================
-index.php, carousel, Content Table related functions
-======================================================================================================
-======================================================================================================
-*/
-
-// does a error check when doing SELECT and returning results
-function confirm_query($result_set) {
-	if (!$result_set) {
-		die("Database query failed.");
-	}
-}
-// seearches CONTENT Table and returns a result between $id_number_1 and $id_number_2
-function find_and_store_all_content($id_number_1, $id_number_2) {
-	global $connection;
-	// 14284
-    	$query = $connection->query("SELECT * FROM content WHERE data_list_num BETWEEN '{$id_number_1}' AND '{$id_number_2}'"); 
-	
-	$content_array = array();
-	
-	while( $row = $query->fetch(PDO::FETCH_ASSOC) ) {
-		$content_array[]=$row;
-	}
-      return $content_array;
-	
-}
-
-
 
 // does search in Content Table and returns returns a result by category_name and between $id_number_1 and $id_number_2
 function find_category_content($category_name, $id_number_1, $id_number_2) {
@@ -163,7 +112,7 @@ function password_checker($password, $existing_hash) {
 // checks if username is in the User_Table when logging in
 function find_user_by_username($username) {
     global $connection;
-    $user_set = $connection->query("SELECT * FROM users WHERE username='{$username}'"); 
+    $user_set = $connection->query("SELECT * FROM User_Table_03 WHERE username='{$username}'"); 
 
     confirm_query($user_set);
 
@@ -177,7 +126,7 @@ function find_user_by_username($username) {
 // get user_id from User_Table
 function find_user_by_user_id($user_id) {
     global $connection;
-    $user_set = $connection->query("SELECT * FROM users WHERE user_id='{$user_id}'"); 
+    $user_set = $connection->query("SELECT * FROM User_Table_03 WHERE user_id='{$user_id}'"); 
 
     confirm_query($user_set);
 
@@ -215,7 +164,7 @@ function logged_in() {
 // redirect someone if they are not logged in and trying to view an area for account users
 function confirm_logged_in() {
     if (!logged_in()) {
-        redirect_to("index.php");
+        redirect_to("test.php");
     }
 }
 
@@ -238,14 +187,14 @@ function form_errors($errors=array()) {
 }
 
 
-// when a user logs in, index.php and all pages will have a sidebar added
+// when a user logs in, test.php and all pages will have a sidebar added
 function display_sidebar() {
   $output = "";
   $output .= "<aside id=\"sidebar\" class=\"col-md-2\">";
   $output .= "<ul>";
   $output .= "<li id=\"sidebar__arrow\"><span class=\"glyphicon glyphicon-menu-hamburger\" aria-hidden=\"true\" style=\"cursor: pointer; font-size: 30px; color: black;\"></span></li>";
 
-  $output .= "<li><a href=\"index.php\">Home</a></li>";
+  $output .= "<li><a href=\"test.php\">Home</a></li>";
   $output .= "<li><a href=\"createdpaths.php\">My Created Paths</a></li>";      
   $output .= "<li><a href=\"subscribedpaths.php\">Subscribed Paths</a></li>";        
   $output .= "</ul>";        
@@ -419,12 +368,5 @@ function get_content_by_sub_path_id($path_id) {
   }
   return $result;
 }
-
-
-
-
-
-?>
-
 
 

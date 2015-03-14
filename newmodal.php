@@ -25,7 +25,7 @@
     <form class="cd-form" action="login.php" method="post">
         <p class="fieldset">
             <label class="image-replace cd-email" for="signin-email">E-mail</label>
-            <input class="full-width has-padding has-border" id="signin-email" type="text" placeholder="E-mail" name="username" value="<?php echo htmlentities($username); ?>" />
+            <input class="full-width has-padding has-border" id="signin-email" type="text" placeholder="E-mail" name="username" />
             <!-- <span class="cd-error-message">Invalid email</span> -->
         </p>
         <p class="fieldset">

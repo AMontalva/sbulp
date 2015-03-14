@@ -1,3 +1,7 @@
+<?php 
+	$layout_context = "public"; 
+	$title = "User List";
+?>
 <?php require_once("session.php"); ?>
 <?php include("header.php"); ?>
 <?php require_once("functions.php"); ?>
@@ -7,7 +11,7 @@
 <?php 
 
 		global $connection;
-      	$query = $connection->query("SELECT * FROM User_Table_03"); 
+      	$query = $connection->query("SELECT * FROM users"); 
 		$user_array = array();
 		while( $row = $query->fetch(PDO::FETCH_ASSOC) ) {
 			$user_array[]=$row;
