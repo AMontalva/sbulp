@@ -51,19 +51,19 @@ function find_and_store_all_content($id_number_1, $id_number_2) {
 
 
 // does search in Content Table and returns returns a result by category_name and between $id_number_1 and $id_number_2
-function find_category_content($category_name, $id_number_1, $id_number_2) {
-    global $connection;
-    $query = $connection->query("SELECT * FROM content WHERE Category='{$category_name}' AND ContentID BETWEEN '{$id_number_1}' AND '{$id_number_2}'"); 
+// function find_category_content($category_name, $id_number_1, $id_number_2) {
+//     global $connection;
+//     $query = $connection->query("SELECT * FROM content WHERE Category='{$category_name}' AND ContentID BETWEEN '{$id_number_1}' AND '{$id_number_2}'"); 
     
-    $cat_array = array();
+//     $cat_array = array();
 
-    while( $row = $query->fetch(PDO::FETCH_ASSOC) ) {
-        $cat_array[]=$row;
-    }
+//     while( $row = $query->fetch(PDO::FETCH_ASSOC) ) {
+//         $cat_array[]=$row;
+//     }
 
-    return $cat_array;
+//     return $cat_array;
     
-}
+// }
 
 // search for all from Subcribed_Path_Table
 function get_subscribed_paths() {
@@ -246,7 +246,7 @@ function display_sidebar() {
   $output .= "<li id=\"sidebar__arrow\"><span class=\"glyphicon glyphicon-menu-hamburger\" aria-hidden=\"true\" style=\"cursor: pointer; font-size: 30px; color: black;\"></span></li>";
 
   $output .= "<li><a href=\"index.php\">Home</a></li>";
-  $output .= "<li><a href=\"createdpaths.php\">My Created Paths</a></li>";      
+  $output .= "<li><a href=\"createdpaths.php\">Created Paths</a></li>";      
   $output .= "<li><a href=\"subscribedpaths.php\">Subscribed Paths</a></li>";        
   $output .= "</ul>";        
   $output .= "</aside>";
@@ -264,9 +264,9 @@ Created Path functions
 */
 
 // get user all created paths by user id
-function get_path_by_user_id($user_id) {
+function get_created_path_by_user_id($user_id) {
     global $connection;
-    $query = $connection->query("SELECT * FROM Created_Path_Table WHERE user_id = {$user_id}"); 
+    $query = $connection->query("SELECT * FROM created_path WHERE user_id = {$user_id}"); 
     $user_created_paths_array = array();
     while( $row = $query->fetch(PDO::FETCH_ASSOC) ) {
       $user_created_paths_array[]=$row;
@@ -279,7 +279,7 @@ function get_path_by_user_id($user_id) {
 // $finished = 1 means that they are finished
 function get_content_by_path_id_and_finished($path_id, $finished) {
   global $connection;
-  $query = $connection->query("SELECT * FROM Content_Created_Path_Table WHERE created_path_id = {$path_id} and finished = {$finished}"); 
+  $query = $connection->query("SELECT * FROM content_created_path WHERE created_path_id = {$path_id} and finished = {$finished}"); 
   while( $row = $query->fetch(PDO::FETCH_ASSOC) ) {
     $result[]=$row;
   }
@@ -287,16 +287,16 @@ function get_content_by_path_id_and_finished($path_id, $finished) {
 }
 
 // get number of content in a created path
-function get_content_count_by_path_id($path_id) {
+function get_created_content_count_by_path_id($path_id) {
   global $connection;
-  $query = $connection->query("SELECT * FROM Content_Created_Path_Table WHERE created_path_id = {$path_id}")->fetchAll(); 
+  $query = $connection->query("SELECT * FROM content_created_path WHERE created_path_id = {$path_id}")->fetchAll(); 
   return count($query);
 }
 
 // get number of finished content in a created path
 function get_finished_content_count_by_path_id($path_id) {
   global $connection;
-  $query = $connection->query("SELECT * FROM Content_Created_Path_Table WHERE created_path_id = {$path_id} AND finished = 1")->fetchAll(); 
+  $query = $connection->query("SELECT * FROM content_created_path WHERE created_path_id = {$path_id} AND finished = 1")->fetchAll(); 
   return count($query);
 }
 
@@ -304,7 +304,7 @@ function get_finished_content_count_by_path_id($path_id) {
 // delete content from a created path
 function delete_content_from_path($content_id, $created_path_id) {
   global $connection;
-    $stmt = $connection->prepare("DELETE FROM Content_Created_Path_Table WHERE content_id=:content_id AND created_path_id=:created_path_id");
+    $stmt = $connection->prepare("DELETE FROM content_created_path WHERE content_id=:content_id AND created_path_id=:created_path_id");
     $stmt->bindValue(':content_id', $content_id, PDO::PARAM_STR);
     $stmt->bindValue(':created_path_id', $created_path_id, PDO::PARAM_STR);
     $stmt->execute();
@@ -313,11 +313,11 @@ function delete_content_from_path($content_id, $created_path_id) {
 // delete created path and all content inside it
 function delete_created_path($created_path_id) {
   global $connection;
-    $stmt = $connection->prepare("DELETE FROM Content_Created_Path_Table WHERE created_path_id=:created_path_id");
+    $stmt = $connection->prepare("DELETE FROM content_created_path WHERE created_path_id=:created_path_id");
     $stmt->bindValue(':created_path_id', $created_path_id, PDO::PARAM_STR);
     $stmt->execute();   
 
-    $stmt2 = $connection->prepare("DELETE FROM Created_Path_Table WHERE created_path_id=:created_path_id");
+    $stmt2 = $connection->prepare("DELETE FROM created_path WHERE created_path_id=:created_path_id");
     $stmt2->bindValue(':created_path_id', $created_path_id, PDO::PARAM_STR);
     $stmt2->execute();     
 }
@@ -335,7 +335,7 @@ Default Path functions
 // get default path of a user
 function get_default_path_by_user_id($user_id) {
   global $connection;
-  $query = $connection->query("SELECT * FROM Default_Path_Table WHERE user_id = {$user_id}"); 
+  $query = $connection->query("SELECT * FROM default_path WHERE user_id = {$user_id}"); 
   $user_default_paths_array = array();
   $row = $query->fetch(PDO::FETCH_ASSOC);
 
@@ -347,7 +347,7 @@ function get_default_path_by_user_id($user_id) {
 // $finished = 1 means that they are finished
 function get_content_by_default_path_id_and_finished($path_id, $finished) {
   global $connection;
-  $query = $connection->query("SELECT * FROM Content_Default_Path_Table WHERE default_path_id = {$path_id} and finished = {$finished}"); 
+  $query = $connection->query("SELECT * FROM content_default_path WHERE default_path_id = {$path_id} and finished = {$finished}"); 
   while( $row = $query->fetch(PDO::FETCH_ASSOC) ) {
     $result[]=$row;
   }
@@ -358,14 +358,14 @@ function get_content_by_default_path_id_and_finished($path_id, $finished) {
 // get the number of content inside a default path
 function get_default_content_count_by_path_id($path_id) {
   global $connection;
-  $query = $connection->query("SELECT * FROM Content_Default_Path_Table WHERE default_path_id = {$path_id}")->fetchAll(); 
+  $query = $connection->query("SELECT * FROM content_default_path WHERE default_path_id = {$path_id}")->fetchAll(); 
   return count($query);
 }
 
 // get number of finished content in a created path
 function get_finished_default_content_count_by_path_id($path_id) {
   global $connection;
-  $query = $connection->query("SELECT * FROM Content_Default_Path_Table WHERE default_path_id = {$path_id} AND finished = 1")->fetchAll(); 
+  $query = $connection->query("SELECT * FROM content_default_path WHERE default_path_id = {$path_id} AND finished = 1")->fetchAll(); 
   return count($query);
 }
 
@@ -374,7 +374,7 @@ function get_finished_default_content_count_by_path_id($path_id) {
 // delete content inside a default path
 function delete_content_from_default_path($content_id, $default_path_id) {
   global $connection;
-  $stmt = $connection->prepare("DELETE FROM Content_Default_Path_Table WHERE content_id=:content_id AND default_path_id=:default_path_id");
+  $stmt = $connection->prepare("DELETE FROM content_default_path WHERE content_id=:content_id AND default_path_id=:default_path_id");
   $stmt->bindValue(':content_id', $content_id, PDO::PARAM_STR);
   $stmt->bindValue(':default_path_id', $default_path_id, PDO::PARAM_STR);
   $stmt->execute();

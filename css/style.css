@@ -2,10 +2,10 @@
 
 Primary style
 
--------------------------------- */
+-------------------------------- */ 
 
 @font-face {
-  font-family: Fairview_Regular;
+  font-family: "Fairview_Regular";
   src: url("Fairview_Regular.otf") format("opentype");
 }
 
@@ -126,7 +126,7 @@ input::-ms-clear, textarea::-ms-clear {
     background-color: #333;
     border-radius: 2px;
     cursor: pointer;
-    font-size: 20px;
+    font-size: 28px;
     padding: 6px 10px;
     -webkit-transition: all 0.2s linear 0s;
     -moz-transition: all 0.2s linear 0s;
@@ -136,13 +136,14 @@ input::-ms-clear, textarea::-ms-clear {
     margin-left: 10px;
     margin-bottom: 10px;
     font-family: "Fairview_Regular";
+    text-decoration: none;
 
   }
   .main-nav a.cd-signup {
     background-color: #333;
     border-radius: 2px;
     cursor: pointer;
-    font-size: 20px;
+    font-size: 28px;
     padding: 6px 10px;
     -webkit-transition: all 0.2s linear 0s;
     -moz-transition: all 0.2s linear 0s;
@@ -152,6 +153,7 @@ input::-ms-clear, textarea::-ms-clear {
     margin-left: 10px;
     margin-bottom: 10px;
     font-family: "Fairview_Regular";
+    text-decoration: none;
   }
 
 
@@ -353,7 +355,11 @@ xsigin/signup popup
   -ms-appearance: none;
   -o-appearance: none;
   appearance: none;
+  -webkit-transition: all 0.2s linear 0s;
+  -moz-transition: all 0.2s linear 0s;
+  -o-transition: all 0.2s linear 0s;
   font-family: "Fairview_Regular";
+  font-size: 28px;
 }
 .no-touch .cd-form input[type=submit]:hover, .no-touch .cd-form input[type=submit]:focus {
   background: #0096f2;

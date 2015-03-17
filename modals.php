@@ -1,4 +1,28 @@
 
+<!-- Create Path Modal -->
+<div class="modal fade" id="createpathmodal" tabindex="1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Create New Path</h4>
+      </div>
+      <div class="modal-body"><!-- Body Start -->
+        <form action="addcreatedpaths.php" method="post">
+            <p>New Path Name <input type="text" name="created_path_name"></p>
+            <p>Description <input type="text" name="created_path_description"></p>
+            <p><button type="submit" class="btn btn-default" name="submit">Save</button>    
+            <button type="submit" class="btn btn-default" data-dismiss="modal" name="cancel">Cancel</button></p>
+        </form>
+      </div><!-- Body End -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Create Path Modal End -->
+
 <!-- Add Content Modal -->
 <div class="modal fade" id="addcontentmodal" tabindex="1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
@@ -76,30 +100,6 @@
 </div>
 <!-- Add Subscribed Path Modal End -->
 
-
-<!-- Create Path Modal -->
-<div class="modal fade" id="createpathmodal" tabindex="1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Create New Path</h4>
-      </div>
-      <div class="modal-body"><!-- Body Start -->
-        <form action="addcreatedpaths.php" method="post">
-            <p>New Path Name <input type="text" name="created_path_name"></p>
-            <p>Description <input type="text" name="created_path_description"></p>
-            <p><button type="submit" class="btn btn-default" name="submit">Save</button>    
-            <button type="submit" class="btn btn-default" data-dismiss="modal" name="cancel">Cancel</button></p>
-        </form>
-      </div><!-- Body End -->
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-  </div>
-</div>
-<!-- Create Path Modal End -->
 
 <!-- Delete Content From Path Modal -->
 <div class="modal fade" id="deletecontentmodal" tabindex="1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">

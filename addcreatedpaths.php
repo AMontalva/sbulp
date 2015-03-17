@@ -15,10 +15,8 @@ if (isset($_POST['submit'])) {
     // $hashed_password = password_encrypt($_POST["password"]);
     $created_path_description = $_POST["created_path_description"];
     $user_id = $_SESSION['user_id'];
-
-    $sql = "INSERT INTO Created_Path_Table (created_path_name, created_path_description, user_id) VALUES (:created_path_name, :created_path_description, :user_id)";
+    $sql = "INSERT INTO created_path (created_path_name, created_path_description, user_id) VALUES (:created_path_name, :created_path_description, :user_id)";
     $query = $connection->prepare($sql);
-
     $query->execute(array(
         ":created_path_name" => $created_path_name,
         ":created_path_description" => $created_path_description,
@@ -30,7 +28,7 @@ if (isset($_POST['submit'])) {
 }
 else {
   // This is probably a GET request
-
+    echo "This is a Get";
 } // end: if (isset($_POST['submit']))
 
 

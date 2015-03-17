@@ -14,7 +14,7 @@
     // $paths_array = get_subscribed_paths();
 ?>   
 
-<h3 class="h3">Blog</h3>
+<h3 class="h3 carousel__title">Blog</h3>
 <br>
 <a href="user_list.php">User List</a>
 
@@ -32,14 +32,11 @@
                 <div class="item">
                     <ul>
                         <div class="content__image"><div class="caption"></div><img src="<?php echo $c_arr['data_list_image_list']; ?>"></div>
-                        <?php 
-                            $img_path = "img/$c_arr['data_list_num']"."/"; 
-                            file_put_contents( file_get_contents( $c_arr['data_list_image_list'] ), $img_path );
-                        ?>
                         <div class="content__title_button_container">
                             <div class="content__title_category_container">
                                 <div class="content__title"><a class="content__title" href="contentpage.php?content_id=<?php echo urlencode($c_arr["data_list_num"]); ?>"><?php echo $c_arr["data_list_title_list"]; ?></a></div>
-                                <!-- div class='jump-link'><a href="#"><?php echo $c_arr["Category"]; ?></a></div>    -->                         
+                                <!-- <div class='jump-link'><a href="#"><?php echo $c_arr["Category"]; ?></a></div>    -->                         
+                                <div class='jump-link'><a href="#">Category</a></div>                            
                             </div>
                             <div class="content__buttons">
                                 <a class="main-nav glyphicon glyphicon-plus addb-signin content_id btn btn-default contant__button_add" href="#" data-toggle="modal" data-target="#addcontentmodal" id="<?php echo $c_arr['data_list_num']; ?>"></a>
