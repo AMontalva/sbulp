@@ -13,11 +13,8 @@ if (isset($_POST['submit'])) {
         // $user_id = $_SESSION["user_id"];
         $finished = 0;
 
-
-        $sql = "INSERT INTO Content_Created_Path_Table (content_id, created_path_id, finished) VALUES (:content_id, :created_path_id, :finished)";
+        $sql = "INSERT INTO content_created_path (content_id, created_path_id, finished) VALUES (:content_id, :created_path_id, :finished)";
         $query = $connection->prepare($sql);
-
-        print_r($_POST);
 
         $query->execute(array(
             ":content_id" => $content_id,
@@ -32,7 +29,7 @@ if (isset($_POST['submit'])) {
         // $user_id = $_SESSION["user_id"];
         $finished = 0;
 
-        $sql_default = "INSERT INTO Content_Default_Path_Table (content_id, default_path_id, finished) VALUES (:content_id, :default_path_id, :finished)";
+        $sql_default = "INSERT INTO content_default_path (content_id, default_path_id, finished) VALUES (:content_id, :default_path_id, :finished)";
         $query_default = $connection->prepare($sql_default);
 
 

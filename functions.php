@@ -83,7 +83,7 @@ function get_subscribed_paths() {
 // search Content Table by id_number
 function get_content_by_content_id($id) {
   global $connection;
-  $content_set = $connection->query("SELECT * FROM Content WHERE ContentID = {$id}"); 
+  $content_set = $connection->query("SELECT * FROM content WHERE data_list_num = {$id}"); 
   confirm_query($content_set);
   if($content = $content_set->fetch(PDO::FETCH_ASSOC)) {
       return $content;
@@ -280,10 +280,13 @@ function get_created_path_by_user_id($user_id) {
 function get_content_by_path_id_and_finished($path_id, $finished) {
   global $connection;
   $query = $connection->query("SELECT * FROM content_created_path WHERE created_path_id = {$path_id} and finished = {$finished}"); 
+  $result = array();
   while( $row = $query->fetch(PDO::FETCH_ASSOC) ) {
     $result[]=$row;
   }
   return $result;
+  
+
 }
 
 // get number of content in a created path
@@ -294,9 +297,10 @@ function get_created_content_count_by_path_id($path_id) {
 }
 
 // get number of finished content in a created path
-function get_finished_content_count_by_path_id($path_id) {
+function get_finished_created_content_count_by_path_id($path_id) {
   global $connection;
   $query = $connection->query("SELECT * FROM content_created_path WHERE created_path_id = {$path_id} AND finished = 1")->fetchAll(); 
+  // confirm_query($query);
   return count($query);
 }
 
@@ -347,6 +351,7 @@ function get_default_path_by_user_id($user_id) {
 // $finished = 1 means that they are finished
 function get_content_by_default_path_id_and_finished($path_id, $finished) {
   global $connection;
+  $result = array();
   $query = $connection->query("SELECT * FROM content_default_path WHERE default_path_id = {$path_id} and finished = {$finished}"); 
   while( $row = $query->fetch(PDO::FETCH_ASSOC) ) {
     $result[]=$row;

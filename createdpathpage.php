@@ -37,8 +37,8 @@
         <br>
 
 <?php 
-$total_created_path_count = get_content_count_by_path_id( $path_id );
-$finished_created_path_count = get_finished_content_count_by_path_id( $path_id ); 
+$total_created_path_count = get_created_content_count_by_path_id( $path_id );
+$finished_created_path_count = get_finished_created_content_count_by_path_id( $path_id ); 
 $total_finished_percent = $finished_created_path_count / $total_created_path_count * 100;
 ?>
 
@@ -60,7 +60,7 @@ $total_finished_percent = $finished_created_path_count / $total_created_path_cou
       ?>
             <div class="thumbnail created_path_page__item">
               <p><?php echo $unfinished_content_row['content_id']; ?></p> <!-- output content id -->
-              <p><?php echo get_content_by_content_id($unfinished_content_row['content_id'])["Title"]; ?></p> <!-- get content by content_id and output title -->            
+              <p><?php echo get_content_by_content_id($unfinished_content_row['content_id'])["data_list_title_list"]; ?></p> <!-- get content by content_id and output title -->            
               <p><a href="#" class="delete_content" id="<?php echo $unfinished_content_row['content_id']; ?>" value="<?php echo $path_id; ?>" data-toggle="modal" data-target="#deletecontentmodal">Delete From Path</a></p>
               <p><a href="finishedcreatedcontent.php?created_path_id=<?php echo urlencode($path_id); ?>&content_id=<?php echo urlencode($unfinished_content_row['content_id']); ?>">Finished</a></p>
 
@@ -72,17 +72,20 @@ $total_finished_percent = $finished_created_path_count / $total_created_path_cou
     <div id="finished_tab" class="tab-pane fade">
       <?php 
           $finished_content_set = get_content_by_path_id_and_finished( $path_id, 1 ); // get all content_id's by path id's
-          foreach($finished_content_set as $finished_content_row) { // loop through paths to get path rows
+          if( isset($finished_content_set) ) {
+            foreach($finished_content_set as $finished_content_row) { // loop through paths to get path rows
       ?>
-            <div class="thumbnail created_path_page__item">
-              <p><?php echo $finished_content_row['content_id']; ?></p> <!-- output content id -->
-              <p><?php echo get_content_by_content_id($finished_content_row['content_id'])["Title"]; ?></p> <!-- get content by content_id and output title -->            
-              <a href="#" class="delete_content" id="<?php echo $finished_content_row['content_id']; ?>" value="<?php echo $path_id; ?>" data-toggle="modal" data-target="#deletecontentmodal">Delete From Path</a>
-              <p><a href="unfinishedcreatedcontent.php?created_path_id=<?php echo urlencode($path_id); ?>&content_id=<?php echo urlencode($finished_content_row['content_id']); ?>">Unfinished</a></p>
-            </div>
-      <?php
+              <div class="thumbnail created_path_page__item">
+                <p><?php echo $finished_content_row['content_id']; ?></p> <!-- output content id -->
+                <p><?php echo get_content_by_content_id($finished_content_row['content_id'])["data_list_title_list"]; ?></p> <!-- get content by content_id and output title -->            
+                <a href="#" class="delete_content" id="<?php echo $finished_content_row['content_id']; ?>" value="<?php echo $path_id; ?>" data-toggle="modal" data-target="#deletecontentmodal">Delete From Path</a>
+                <p><a href="unfinishedcreatedcontent.php?created_path_id=<?php echo urlencode($path_id); ?>&content_id=<?php echo urlencode($finished_content_row['content_id']); ?>">Unfinished</a></p>
+              </div>
+          <?php
+            }
           }
       ?>
+
     </div> 
 
 </div>

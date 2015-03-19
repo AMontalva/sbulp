@@ -60,7 +60,7 @@
           ?>
                 <div class="thumbnail created_path_page__item">
                   <p><?php echo $content_row['content_id']; ?></p> <!-- output content id -->
-                  <p><?php echo get_content_by_content_id($content_row['content_id'])["Title"]; ?></p> <!-- get content by content_id and output title -->            
+                  <p><?php echo get_content_by_content_id($content_row['content_id'])["data_list_title_list"]; ?></p> <!-- get content by content_id and output title -->            
                   <a href="#" class="delete_default_content" id="<?php echo $content_row['content_id']; ?>" value="<?php echo $path_id; ?>" data-toggle="modal" data-target="#deletedefaultcontentmodal">Delete From Path</a>
                   <p><a href="finisheddefaultcontent.php?default_path_id=<?php echo urlencode($path_id); ?>&content_id=<?php echo urlencode($content_row['content_id']); ?>">Finished</a></p>
                 </div>
@@ -75,7 +75,7 @@
           ?>
                 <div class="thumbnail created_path_page__item">
                   <p><?php echo $content_row['content_id']; ?></p> <!-- output content id -->
-                  <p><?php echo get_content_by_content_id($content_row['content_id'])["Title"]; ?></p> <!-- get content by content_id and output title -->            
+                  <p><?php echo get_content_by_content_id($content_row['content_id'])["data_list_title_list"]; ?></p> <!-- get content by content_id and output title -->            
                   <a href="#" class="delete_default_content" id="<?php echo $content_row['content_id']; ?>" value="<?php echo $path_id; ?>" data-toggle="modal" data-target="#deletedefaultcontentmodal">Delete From Path</a>
                   <p><a href="finisheddefaultcontent.php?default_path_id=<?php echo urlencode($path_id); ?>&content_id=<?php echo urlencode($content_row['content_id']); ?>">Finished</a></p>
                 </div>

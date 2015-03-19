@@ -34,7 +34,7 @@
       <div class="modal-body"><!-- Body Start -->
         <?php 
         if(isset($_SESSION['user_id'])) { 
-            $path_result = get_path_by_user_id( $_SESSION['user_id'] );
+            $path_result = get_created_path_by_user_id( $_SESSION['user_id'] );
             $default_result = get_default_path_by_user_id( $_SESSION["user_id"] ); 
         ?>
 
